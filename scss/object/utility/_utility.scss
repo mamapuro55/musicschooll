@@ -1,0 +1,22 @@
+// SPだけ表示
+.u-sp {
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+// PCだけ表示
+.u-pc {
+  display: none;
+  @media (min-width: 768px) {
+    display: inline;
+  }
+}
+
+// SPでは改行、PCでは1行
+.u-ib {
+  display: block;
+  @media (min-width: 768px) {
+    display: inline;
+  }
+}

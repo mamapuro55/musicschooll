@@ -1,0 +1,41 @@
+.footer {
+  background-color: var(--color-main);
+  color: #fff;
+  padding-block: 4.4rem 5rem;
+  padding-inline: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
+  &__nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;   
+  }
+  &__nav a {
+    font-size: 1.7rem;
+    font-weight: bold;
+  }
+  &__logo {
+    display: flex;
+    width: fit-content;
+    margin-top: 1.9rem;
+    margin-inline: auto;
+  }
+  &__logo-img {
+    width: 3.2rem;
+  }
+  &__copyright {
+    margin-top: 1.9rem;
+    font-style: 1.5rem;
+    line-height: calc(20 / 15);
+  }
+  &__sns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.6rem;
+    gap: 2rem;
+    img {
+      width: 2.2rem;
+    }
+  }
+}

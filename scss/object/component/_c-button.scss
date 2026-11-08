@@ -1,0 +1,20 @@
+/* 送信ボタン */
+.c-button {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5rem 2.8rem;
+  background: var(--color-main);
+  border: 1px solid var(--color-main);
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: calc(33 / 15);
+  white-space: nowrap;
+  transition: background-color 0.4s, color 0.4s; 
+  &:hover {
+    background-color: #fff;
+    color: #CB0000;
+  }
+}
+

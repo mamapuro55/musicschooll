@@ -1,0 +1,453 @@
+@charset "UTF-8";
+:root {
+  --color-main: #CB0000;
+}
+
+/***
+    The new CSS reset - version 1.11.3 (last updated 25.08.2024)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Fix mobile Safari increase font-size on landscape mode */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu, summary {
+  list-style: none;
+}
+
+/* Firefox: solve issue where nested ordered lists continue numbering from parent (https://bugzilla.mozilla.org/show_bug.cgi?id=1881517) */
+ol {
+  counter-reset: revert;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-inline-size: 100%;
+  max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+  -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  -moz-appearance: revert;
+       appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+  all: revert;
+  box-sizing: border-box;
+}
+
+/* reset default text opacity of input placeholder */
+::-moz-placeholder {
+  color: unset;
+}
+::placeholder {
+  color: unset;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable=false])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable=true]) {
+  -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+  all: revert;
+  box-sizing: border-box;
+}
+
+/* Remove details summary webkit styles */
+::-webkit-details-marker {
+  display: none;
+}
+
+/* -------------
+base
+---------------*/
+html {
+  -webkit-text-size-adjust: 100%;
+  word-break: break-all;
+  font-size: 10px;
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family: "Yu Gothic", YuGothic, "Noto Sans JP", sans-serif;
+  font-weight: 500;
+  color: #000;
+  font-size: 1.6rem;
+  line-height: 1.875;
+  letter-spacing: 0;
+}
+body.is-nav-open {
+  overflow: hidden;
+}
+
+/* -------------
+common
+---------------*/
+/* PC.SPの非表示 */
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  overflow: hidden;
+}
+
+a {
+  cursor: pointer !important;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.is-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-delay {
+  transition-delay: 0.2s;
+}
+
+.l-inner {
+  width: 100%;
+  height: 100%;
+  max-width: 920px;
+  margin-inline: auto;
+  padding-inline: 2rem;
+  align-items: center;
+}
+
+.l-header {
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  transition: background-color 0.4s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+@media (min-width: 768px) {
+  .l-header {
+    height: 80px;
+  }
+  .l-header_inner {
+    display: flex;
+  }
+}
+.l-header__logo {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+.l-header__logo a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: opacity 0.4s, color 0.4s;
+}
+.l-header__nav {
+  display: none;
+}
+@media (min-width: 768px) {
+  .l-header__nav {
+    display: flex;
+  }
+}
+.l-header__nav ul {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 3.1rem;
+       column-gap: 3.1rem;
+  list-style: none;
+}
+
+/* =====================
+  オーバーレイ
+===================== */
+.c-overlay {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s;
+  z-index: 1040;
+}
+.c-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.footer {
+  background-color: var(--color-main);
+  color: #fff;
+  padding-block: 4.4rem 5rem;
+  padding-inline: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.footer__nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+.footer__nav a {
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+.footer__logo {
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 1.9rem;
+  margin-inline: auto;
+}
+.footer__logo-img {
+  width: 3.2rem;
+}
+.footer__copyright {
+  margin-top: 1.9rem;
+  font-style: 1.5rem;
+  line-height: 1.3333333333;
+}
+.footer__sns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.6rem;
+  gap: 2rem;
+}
+.footer__sns img {
+  width: 2.2rem;
+}
+
+main {
+  margin-top: 5rem;
+}
+
+/* =====================
+  ハンバーガーボタン
+===================== */
+.c-hamburger {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: none;
+  width: 72px;
+  height: 50px;
+  padding: 0;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+@media (max-width: 767px) {
+  .c-hamburger {
+    display: block;
+  }
+}
+.c-hamburger span {
+  position: absolute;
+  display: block;
+  left: 20px;
+  width: 32px;
+  height: 4px;
+  border-radius: 20px;
+  background-color: var(--color-main);
+  transform: translateY(-50%);
+  transition: opacity 0.4s;
+}
+.c-hamburger span:nth-of-type(1) {
+  top: 26%;
+}
+.c-hamburger span:nth-of-type(2) {
+  top: 50%;
+}
+.c-hamburger span:nth-of-type(3) {
+  top: 74%;
+}
+.c-hamburger.is-active span:nth-of-type(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+}
+.c-hamburger.is-active span:nth-of-type(2) {
+  opacity: 0;
+}
+.c-hamburger.is-active span:nth-of-type(3) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* 送信ボタン */
+.c-button {
+  text-align: center;
+  margin-top: 27px;
+}
+@media (max-width: 767px) {
+  .c-button {
+    margin-top: 50px;
+  }
+}
+
+.form-submit {
+  padding: 8px 60px;
+  white-space: nowrap;
+  background: var(--color-main);
+  color: #fff;
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 1.65;
+  border: 1px solid #CB0000;
+  transition: background-color 0.4s, color 0.4s;
+}
+@media (max-width: 767px) {
+  .form-submit {
+    padding-block: 8px;
+    padding-inline: 67px;
+  }
+}
+@media (max-width: 374px) {
+  .form-submit {
+    padding-inline: 39px;
+  }
+}
+@media (min-width: 768px) {
+  .form-submit:hover {
+    background-color: #fff;
+    color: #CB0000;
+  }
+}
+
+/* =====================
+MV
+===================== */
+.p-top-mv {
+  position: relative;
+}
+
+.p-top-mv__contents {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 14px;
+}
+
+.p-top-mv__catch {
+  width: 80vw;
+  height: 40vw;
+  justify-content: center;
+  text-align: center;
+}
+
+.p-top-mv__catch h2 {
+  font-size: 8vw;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.6666666667;
+}
+
+@media (min-width: 768px) {
+  .u-sp {
+    display: none;
+  }
+}
+
+.u-pc {
+  display: none;
+}
+@media (min-width: 768px) {
+  .u-pc {
+    display: inline;
+  }
+}
+
+.u-ib {
+  display: block;
+}
+@media (min-width: 768px) {
+  .u-ib {
+    display: inline;
+  }
+}
+/*# sourceMappingURL=style.css.map */

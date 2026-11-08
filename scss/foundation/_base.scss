@@ -1,0 +1,74 @@
+/* -------------
+base
+---------------*/
+
+html {
+  -webkit-text-size-adjust: 100%;
+  word-break: break-all;
+  font-size: 10px;
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family: "Yu Gothic", YuGothic, "Noto Sans JP", sans-serif;
+  font-weight: 500;
+  color: #000;
+  font-size: 1.6rem;
+  line-height: calc(30 / 16);
+  letter-spacing: 0;
+  &.is-nav-open {
+    overflow: hidden;
+  }
+}
+
+/* -------------
+common
+---------------*/
+main {
+  margin-top: 5rem;
+  @media (min-width: 768px) {
+    margin-top: 8rem;
+  }
+}
+/* PC.SPの非表示 */
+// @media (max-width: 767px) {
+//   .pc {
+//     display: none !important;
+//   }
+// }
+// @media (min-width: 768px) {
+//   .sp {
+//     display: none !important;
+//   }
+// }
+
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  overflow: hidden;
+}
+
+a {
+  cursor: pointer !important;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+
+  &.is-show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-in-delay {
+  transition-delay: 0.2s;
+}
+

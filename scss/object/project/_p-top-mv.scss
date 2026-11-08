@@ -1,0 +1,45 @@
+/* =====================
+MV
+===================== */
+.p-top-mv {
+  position: relative;
+}
+
+.p-top-mv__contents {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 14px;
+  // @media (min-width: 768px) {
+  //   padding-top: 4rem;
+  // }
+}
+
+// .p-top-mv__catch {
+//   width: calc(300 / 375 * 100vw);
+//   height: calc(150 / 375 * 100vw);
+//   justify-content: center;
+//   text-align: center;
+// }
+
+.p-top-mv__catch h2 {
+  font-size: calc(30 / 375 * 100vw);
+  font-weight: 700;
+  color: #fff;
+  line-height: calc(50 / 30);
+  text-align: center;
+  @media (min-width: 768px) {
+    font-size: calc(40 / 1080 * 100vw);
+    line-height: calc(60 / 40);
+    // padding-left: calc(30 / 1080 * 100vw);
+  }
+}
+
+
+
+
