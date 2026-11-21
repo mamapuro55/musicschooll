@@ -1,0 +1,108 @@
+.p-top-concept {
+  padding-block: 4.7rem 3.3rem;
+  text-align: center;
+  @media (min-width: 768px) {
+    padding-block: 6.3rem 5.4rem;
+  }
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: calc(40 /25 );
+    color: var(--color-main);
+    @media (min-width: 768px) {
+      font-size: 3.5rem;
+    }
+  }
+  &__text {
+    margin-top: 0.6rem;
+    font-size: 1.8rem;
+    line-height: calc(30 /18 );
+    text-align: left;
+    @media (min-width: 768px) {
+      margin-top: 1.4rem;
+      text-align: center;
+    }
+  }
+  &__flow {
+    position: relative;
+  }
+  &__arrow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3.1rem;
+    height: auto;
+    text-align: center;
+
+  }
+  &__img {
+    margin-top: 2rem;
+    @media (min-width: 768px) {
+      margin-top: 3.4rem;
+    }
+  }
+  &__list {
+  position: relative;
+  display: grid;
+  row-gap: 1.9rem;
+  margin-top: 0.3rem;
+  padding-top: 3rem;
+  @media (min-width: 768px) {
+    margin-top: -0.8rem;
+    padding-top: 2.6rem;
+  }
+
+  // 縦線（真ん中）
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0.3rem;
+    bottom: 2.5rem;
+    left: 50%;
+    width: 3px;
+    background-color: var(--color-main);
+    transform: translateX(-50%);
+  }
+}
+
+&__item {
+  display: grid;
+  grid-template-columns: 1fr 2rem 1fr; // 英語｜丸｜日本語
+  align-items: center;
+  column-gap: 3rem;
+}
+
+&__en {
+  text-align: right;
+  color: var(--color-main);
+  font-size: 2rem;
+  line-height: calc(50 / 20);
+  font-weight: 700;
+  @media (min-width: 768px){
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: calc(50 / 25);
+  }
+}
+
+&__dot {
+  position: relative;
+  z-index: 1;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: var(--color-main);
+}
+
+&__ja {
+  text-align: left;
+  font-size: 2rem;
+  line-height: calc(50 / 20);
+  @media (min-width: 768px){
+    font-size: 2.3rem;
+    font-weight: 500;
+    line-height: calc(50 / 23);
+  }
+}
+}
