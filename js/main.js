@@ -15,3 +15,20 @@ $(function () {
     $("body").removeClass("is-nav-open");
   });
 });
+
+// スライダー
+const voiceSwiper = new Swiper(".p-top-voice__contents", {
+  loop: true,
+  slidesPerView: 1,        // SP:1枚
+  spaceBetween: 20,
+  navigation: {
+    prevEl: ".p-top-voice__prev",
+    nextEl: ".p-top-voice__next",
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 3,    // PC:3枚
+      spaceBetween: 35,
+    },
+  },
+});

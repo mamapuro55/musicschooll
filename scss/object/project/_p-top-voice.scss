@@ -1,0 +1,120 @@
+.p-top-voice {
+  padding-block: 4.6rem 3.9rem; 
+  background-color: var(--color-main);
+  @media (min-width: 768px) {
+    padding-block: 2.8rem 9.1rem;
+  }
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: calc(40 / 25);
+    color: #fff;
+    text-align: center;
+    @media (min-width: 768px) {
+      margin-top: 1.6rem;
+      font-size: 3rem;
+      line-height: calc(50 / 30);
+    }
+  }
+  // ===== スライダー全体(矢印の位置の基準)=====
+  &__slider {
+    position: relative;            // 矢印の位置の基準
+    container-type: inline-size;   // 100cqw = スライダーの幅
+    @media (min-width: 768px) {
+    }
+  }
+  &__contents {
+    margin-top: 3.9rem;
+    @media (min-width: 768px) {
+      margin-top: 3.6rem;
+    }
+  }
+  &__subtitle {
+    margin-top: 2.7rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: calc(33 / 22);
+    color: #fff;
+    text-align: center;
+    @media (min-width: 768px) {
+      margin-top: 1.7rem;
+      font-size: 2.2rem;
+    }
+  }
+  &__text {
+    margin-top: 1rem;
+    font-size: 1.8rem;
+    line-height: calc(30 / 18);
+    color: #fff;
+    @media (min-width: 768px) {
+      margin-top: 1rem;
+    }
+  }
+  // ===== ホバー =====
+  &__content:hover {
+    @media (any-hover: hover) {
+      .p-top-voice__image img {
+        transform: scale(1.1);
+      }
+
+      .p-top-voice__subtitle,
+      .p-top-voice__text {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  // ===== 矢印(共通)=====
+  &__prev,
+  &__next {
+  margin-top: 0;                   // Swiper の上下調整を打ち消す
+  transform: translateY(-50%);     // 矢印の中心を合わせる
+  width: 2.4rem;
+  height: 4rem;
+
+  svg {
+    display: none;
+  }
+
+  &::after {
+    display: none;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    }
+  }
+
+  .p-top-voice__slider .p-top-voice__prev,
+  .p-top-voice__slider .p-top-voice__next {
+    top: calc(100cqw * 208 / 335);                 // SP:画像の中の位置
+
+    @media (min-width: 768px) {
+      top: calc((100cqw - 70px) / 3 * 0.75);       // PC:画像の中の位置
+    }
+
+  }
+
+  .p-top-voice__slider .p-top-voice__prev {
+    left: 0.4rem;                                    // SP:画像の内側
+    right: auto;
+
+    @media (min-width: 768px) {
+      left: auto;
+      right: calc(100% + 1.8rem);                  // PC:インナーの左の外側
+    }
+  }
+
+  .p-top-voice__slider .p-top-voice__next {
+    left: auto;
+    right: 0.4rem;                                   // SP:画像の内側
+
+    @media (min-width: 768px) {
+      left: calc(100% + 1.8rem);                   // PC:インナーの右の外側
+      right: auto;
+    }
+  }
+}
